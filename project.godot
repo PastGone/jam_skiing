@@ -11,12 +11,27 @@ config_version=5
 [application]
 
 config/name="ski"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/scale=0.5
+window/size/always_on_top.editor=true
 
 [dotnet]
 
 project/assembly_name="ski"
+
+[filesystem]
+
+import/blender/enabled=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
