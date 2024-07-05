@@ -20,10 +20,28 @@ script = ExtResource("2_ke87w")
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(223, 161)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_r3pq1")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+
+[node name="Fraction" type="Label" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Test" type="Node" parent="."]
 

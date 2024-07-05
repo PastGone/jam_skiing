@@ -23,6 +23,11 @@ project/assembly_name="ski"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/default_theme_scale=1.5
+theme/custom="res://theme.theme"
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
