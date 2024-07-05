@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxe0yajt2yvl4"]
+
+[ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_a2avg")
+
+[node name="System" type="Node" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_r3pq1")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
