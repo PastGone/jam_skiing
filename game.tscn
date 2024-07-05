@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=4 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
+[ext_resource type="Script" path="res://System.cs" id="2_ke87w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
 
@@ -8,6 +9,7 @@
 script = ExtResource("1_a2avg")
 
 [node name="System" type="Node" parent="."]
+script = ExtResource("2_ke87w")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 
