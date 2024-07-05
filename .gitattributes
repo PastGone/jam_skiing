@@ -1,2 +1,17 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+windows/**/* text=auto eol=crlf
+
+*.ttf binary diff=false
+*.woff binary diff=false
+
+*.png binary diff=false
+*.svg binary diff=false
+*.jpg binary diff=false
+*.jpeg binary diff=false
+*.gif binary diff=false
+*.ico binary diff=false
+
+*.ogg binary diff=false
+*.mp3 binary diff=false
+*.wav binary diff=false
