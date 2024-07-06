@@ -12,7 +12,7 @@ public partial class Game : Node2D
 	public override void _Ready()
 	{
 		Instance = this;
-	  
+		Player = new(GetNode<CharacterBody2D>("Player"));
 	}
 
 	public override void _Draw()

@@ -62,7 +62,7 @@ func _ready() -> void:
 	#试着绘制陷阱
 	draw_pitfall()
 
-func  _process(delta: float) -> void:
+func  _process(_delta: float) -> void:
 	if worldmanger.最远点的位置.x > end_global_position.x+5000.0:
 		self.queue_free()
 		pass

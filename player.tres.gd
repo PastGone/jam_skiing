@@ -1,8 +1,9 @@
 extends CharacterBody2D
 @export var is_editor:bool
+@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 600.0
+const JUMP_VELOCITY = -800.0
 
 
 
@@ -14,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-	if Input.is_action_just_pressed("ui_accept") :
+	if Input.is_action_just_pressed("ui_accept") and shape_cast_2d.is_colliding()  :
 
 		velocity.y = JUMP_VELOCITY
 	
@@ -29,8 +30,10 @@ func _physics_process(delta: float) -> void:
 	if is_editor:
 		velocity.x = SPEED
 	move_and_slide()
+	
+	
 func _input(event:InputEvent):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and shape_cast_2d.is_colliding():
 		if event.button_index==MOUSE_BUTTON_LEFT and event.is_pressed() :
 			velocity.y = JUMP_VELOCITY
 			return
