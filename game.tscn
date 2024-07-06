@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=11 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="Script" path="res://System.cs" id="2_ke87w"]
+[ext_resource type="Script" path="res://Build.cs" id="2_td6qc"]
+[ext_resource type="Script" path="res://Cloud.cs" id="2_uo85j"]
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
+[ext_resource type="Script" path="res://Pitfall.cs" id="3_bwnah"]
 [ext_resource type="Script" path="res://worldmanger.gd" id="3_gl2k2"]
 [ext_resource type="PackedScene" uid="uid://d2gy5epstr3an" path="res://way.tscn" id="4_tkp2r"]
-[ext_resource type="Texture2D" uid="uid://cqym5tra3h4sy" path="res://icon.svg" id="4_u2yp5"]
+[ext_resource type="Texture2D" uid="uid://cb20nduxbycsl" path="res://icon.svg" id="4_u2yp5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
 radius = 61.0
@@ -14,10 +17,19 @@ height = 122.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a2avg")
 
-[node name="System" type="Node" parent="."]
-script = ExtResource("2_ke87w")
+[node name="Background" type="Parallax2D" parent="."]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Cloud" type="Parallax2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_uo85j")
+
+[node name="Build" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_td6qc")
+
+[node name="Pitfall" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_bwnah")
 
 [node name="地形" type="Node2D" parent="."]
 script = ExtResource("3_gl2k2")
@@ -25,6 +37,7 @@ script = ExtResource("3_gl2k2")
 [node name="地段" parent="地形" instance=ExtResource("4_tkp2r")]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(223, 161)
 script = ExtResource("3_7c0cb")
 is_editor = true
@@ -52,3 +65,6 @@ theme_override_constants/margin_right = 100
 [node name="Fraction" type="Label" parent="CanvasLayer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="System" type="Node" parent="."]
+script = ExtResource("2_ke87w")

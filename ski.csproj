@@ -4,7 +4,6 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <LangVersion>12</LangVersion>
     <!-- <PublishAOT>true</PublishAOT> -->
-    <LangVersion>12</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
