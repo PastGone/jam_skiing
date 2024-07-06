@@ -111,7 +111,7 @@ texture = ExtResource("6_1g4hq")
 
 [node name="Mountain3" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0)
-scroll_offset = Vector2(-335, 327)
+scroll_offset = Vector2(-314, 320)
 repeat_size = Vector2(2500, 0)
 repeat_times = 4
 
@@ -147,8 +147,84 @@ texture = ExtResource("5_5fxaw")
 position = Vector2(1667, 612)
 texture = ExtResource("6_1g4hq")
 
+[node name="Mountain4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0)
+scroll_offset = Vector2(-506, 576)
+repeat_size = Vector2(2500, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain4"]
+position = Vector2(246, 466)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mountain4"]
+position = Vector2(976, 472)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain4"]
+position = Vector2(568, 544)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mountain4"]
+position = Vector2(1165, 627)
+texture = ExtResource("6_1g4hq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mountain4"]
+position = Vector2(2040, 463)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mountain4"]
+position = Vector2(1641, 468)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mountain4"]
+position = Vector2(-107, 539)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mountain4"]
+position = Vector2(1667, 612)
+texture = ExtResource("6_1g4hq")
+
+[node name="Mountain5" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0)
+scroll_offset = Vector2(-222, 782)
+repeat_size = Vector2(2500, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain5"]
+position = Vector2(246, 466)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mountain5"]
+position = Vector2(976, 472)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain5"]
+position = Vector2(568, 544)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mountain5"]
+position = Vector2(1165, 627)
+texture = ExtResource("6_1g4hq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mountain5"]
+position = Vector2(2040, 463)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mountain5"]
+position = Vector2(1641, 468)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mountain5"]
+position = Vector2(-107, 539)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mountain5"]
+position = Vector2(1667, 612)
+texture = ExtResource("6_1g4hq")
+
 [node name="Cloud" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.01, 0)
+scroll_scale = Vector2(0.05, 0)
 repeat_size = Vector2(1000, 0)
 repeat_times = 4
 
