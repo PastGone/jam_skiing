@@ -2,6 +2,7 @@ extends Node
 var a=preload("res://way.tscn")
 
 var 最远点的位置:Vector2=Vector2.ZERO
+var 当前最新地形编号:int=0
 @onready var player: CharacterBody2D = $"../Player"
 
 var viewport_x:int

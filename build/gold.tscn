@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctjw084u75h5t"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_ciu1k"]
+[ext_resource type="Texture2D" uid="uid://b3usjonq1yfc7" path="res://assets/textures/gold.png" id="2_bxjjw"]
+
+[node name="Tree1" instance=ExtResource("1_ciu1k")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-2.5, -177.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_bxjjw")
