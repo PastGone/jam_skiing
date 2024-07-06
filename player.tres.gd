@@ -48,46 +48,50 @@ func _physics_process(delta: float) -> void:
 func _input(event:InputEvent):
 	if event is InputEventMouseButton and shape_cast_2d.is_colliding():
 		if event.button_index==MOUSE_BUTTON_LEFT and event.is_pressed() :
-			velocity.y = JUMP_VELOCITY
-			jump.play()
+			mjump()
 			return
-					
-					
-					
 	
-#	合并的逻辑在这里
+#	合并在这里
 	if Input.is_action_just_pressed("ui_accept") and shape_cast_2d.is_colliding()  :
-		for c in self.get_children():
+		combine()
+		return
+
+#	分裂在这里。 
+	if event is InputEventMouseButton and self.scale>Vector2(2,2) :
+		if event.button_index==MOUSE_BUTTON_RIGHT and event.is_pressed() :
+				split()
+				pass
+		pass
+
+func mjump():
+	velocity.y = JUMP_VELOCITY
+	jump.play()
+
+
+func split():
+	self.scale/=2
+	display_current_scale/=2
+	for i in range(0,add_other_num):
+		var a:CharacterBody2D=other.instantiate()
+		a.position.x=other_index*-200
+		other_index+=1
+		self.add_child(a)
+		add_other_num*=2
+func combine():
+	for c in self.get_children():
 			if c.is_in_group("snow_ball"):
 				c.queue_free()
 				
 			pass
-		pass
-		display_current_scale=self.scale*other_index  
-		# 缩放不能超过最大值
-		if self.scale*other_index >max_scale:
-			self.scale=max_scale
-		else:
-			self.scale*=other_index
-		# 重置其他数量
-		other_index=1
-		add_other_num=1
-		return
-
-#	分裂的逻辑在这里。 
-	if event is InputEventMouseButton and self.scale>Vector2(2,2) :
-		if event.button_index==MOUSE_BUTTON_RIGHT and event.is_pressed() :
-			self.scale/=2
-			display_current_scale/=2
-			for i in range(0,add_other_num):
-				var a:CharacterBody2D=other.instantiate()
-				a.position.x=other_index*-200
-				other_index+=1
-				self.add_child(a)
-				add_other_num*=2
-				pass
-		pass
-	
+	display_current_scale=self.scale*other_index  
+	# 缩放不能超过最大值
+	if self.scale*other_index >max_scale:
+		self.scale=max_scale
+	else:
+		self.scale*=other_index
+	# 重置其他数量
+	other_index=1
+	add_other_num=1
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -130,4 +134,20 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		self.scale-=Vector2(0.1/other_index,0.1/other_index)
 		display_current_scale-=Vector2(0.1/other_index,0.1/other_index)
 		body.queue_free()
+	pass # Replace with function body.
+
+
+func _on_up_button_up() -> void:
+	if shape_cast_2d.is_colliding():
+		mjump()
+	pass # Replace with function body.
+
+
+func _on_combine_button_up() -> void:
+	combine()
+	pass # Replace with function body.
+
+
+func _on_split_button_up() -> void:
+	split()
 	pass # Replace with function body.
