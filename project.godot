@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -34,15 +35,35 @@ import/blender/enabled=false
 gold=""
 house=""
 pitfall=""
+snow_ball=""
+tree=""
 
 [gui]
 
 theme/default_theme_scale=1.5
 theme/custom="res://theme.theme"
 
+[input]
+
+m={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
+]
+}
+x={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+]
+}
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_2="house"
+2d_physics/layer_3="tree"
 
 [rendering]
 

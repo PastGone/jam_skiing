@@ -1,15 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwu40lpp3l6yk"]
+[gd_scene load_steps=9 format=3 uid="uid://cwu40lpp3l6yk"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_bu71m"]
 [ext_resource type="Texture2D" uid="uid://dv5wewrbwmnr" path="res://assets/textures/tset/树2.PNG" id="2_77hio"]
+[ext_resource type="Texture2D" uid="uid://jvmp7wf8m1ig" path="res://assets/textures/tset/树2倒.PNG" id="2_n3iep"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ep7yt"]
-atlas = ExtResource("2_77hio")
-region = Rect2(300, 104, 479, 741)
+[sub_resource type="GDScript" id="GDScript_2su26"]
+script/source = "extends StaticBody2D
 
-[node name="tree1" instance=ExtResource("1_bu71m")]
+var a:Texture2D=preload(\"res://assets/textures/tset/小屋残骸.PNG\")
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+var falg=false
+
+func q_f():
+	animation_player.play(\"q_f\")
+	falg=true
+	
+
+func _process(delta: float) -> void:
+	if falg:
+		if not animation_player.is_playing() :
+			self.queue_free()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8o6"]
+radius = 197.49
+height = 759.97
+
+[sub_resource type="Animation" id="Animation_d15g8"]
+resource_name = "q_f"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_77hio"), ExtResource("2_n3iep")]
+}
+
+[sub_resource type="Animation" id="Animation_4kalp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_77hio")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2fh6"]
+_data = {
+"RESET": SubResource("Animation_4kalp"),
+"q_f": SubResource("Animation_d15g8")
+}
+
+[node name="tree2" groups=["tree"] instance=ExtResource("1_bu71m")]
 scale = Vector2(0.4, 0.4)
+collision_layer = 4
+script = SubResource("GDScript_2su26")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(2.5, -360)
-texture = SubResource("AtlasTexture_ep7yt")
+texture = ExtResource("2_77hio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-5, -320)
+shape = SubResource("CapsuleShape2D_ct8o6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_y2fh6")
+}
