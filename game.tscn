@@ -1,24 +1,28 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=23 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
+[ext_resource type="AudioStream" uid="uid://lolf2wrjlu8p" path="res://ogg_sound/Game  Royalty-free Music - Pixabay.ogg" id="2_41krg"]
+[ext_resource type="AudioStream" uid="uid://bn766yhyhhjit" path="res://ogg_sound/Snowball_UI_Get_Item.ogg" id="2_as8st"]
 [ext_resource type="Texture2D" uid="uid://latjhdiujvye" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
+[ext_resource type="AudioStream" uid="uid://cv67lctq4yad2" path="res://ogg_sound/Snowball_Crash_Small.ogg" id="3_3x2a0"]
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
 [ext_resource type="Texture2D" uid="uid://68bdg4epppjt" path="res://assets/textures/tset/山1.png" id="3_gdm1j"]
 [ext_resource type="Script" path="res://worldmanger.gd" id="3_gl2k2"]
 [ext_resource type="Texture2D" uid="uid://b4qymw3uqq64a" path="res://assets/textures/tset/山2.png" id="4_fcfif"]
 [ext_resource type="Texture2D" uid="uid://dvf5qhsa32l3g" path="res://assets/textures/tset/云1.png" id="4_pjjwq"]
+[ext_resource type="AudioStream" uid="uid://bpv0db00pxd05" path="res://ogg_sound/Snowball_Jump.ogg" id="4_qxprf"]
 [ext_resource type="PackedScene" uid="uid://d2gy5epstr3an" path="res://way.tscn" id="4_tkp2r"]
-[ext_resource type="Texture2D" uid="uid://8f6bx0djjqww" path="res://icon.svg" id="4_u2yp5"]
 [ext_resource type="Texture2D" uid="uid://ech6jwe6b18i" path="res://assets/textures/tset/山3.png" id="5_5fxaw"]
 [ext_resource type="Texture2D" uid="uid://cisy21cecw3sr" path="res://assets/textures/tset/云2.png" id="5_gk18a"]
 [ext_resource type="Texture2D" uid="uid://dwovduixqams8" path="res://assets/textures/tset/山4.png" id="6_1g4hq"]
 [ext_resource type="Texture2D" uid="uid://0apm68qc50jh" path="res://assets/textures/tset/云3.png" id="6_va6ku"]
 [ext_resource type="Texture2D" uid="uid://dh1pr5iu0xcox" path="res://assets/textures/tset/云4.png" id="7_dtpq6"]
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
+[ext_resource type="Texture2D" uid="uid://df8vbi0ma2i4h" path="res://assets/textures/tset/雪球_开心.PNG" id="18_bir1x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
-radius = 71.0
-height = 156.15
+radius = 63.0
+height = 140.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ovb"]
 
@@ -27,6 +31,40 @@ size = Vector2(185, 186.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a2avg")
+
+[node name="sound_manger" type="Node" parent="."]
+
+[node name="bgm" type="AudioStreamPlayer" parent="sound_manger"]
+stream = ExtResource("2_41krg")
+volume_db = -10.306
+autoplay = true
+
+[node name="crash_h" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="crash_m" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="crash_s" type="AudioStreamPlayer" parent="sound_manger"]
+stream = ExtResource("3_3x2a0")
+
+[node name="drop_down" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="fly" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="fusion" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="jump" type="AudioStreamPlayer" parent="sound_manger"]
+stream = ExtResource("4_qxprf")
+
+[node name="rolling" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="spilt" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="swallow" type="AudioStreamPlayer" parent="sound_manger"]
+
+[node name="getitem" type="AudioStreamPlayer" parent="sound_manger"]
+stream = ExtResource("2_as8st")
+
+[node name="reward" type="AudioStreamPlayer" parent="sound_manger"]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -276,10 +314,11 @@ script = ExtResource("3_7c0cb")
 is_editor = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("4_u2yp5")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_bir1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_r3pq1")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -294,10 +333,21 @@ scale = Vector2(6.07116, 0.700226)
 shape = SubResource("RectangleShape2D_68ovb")
 
 [node name="Area2D" type="Area2D" parent="Player"]
+visible = false
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2(30.5, 5.75)
+position = Vector2(48, 10)
 shape = SubResource("RectangleShape2D_2y4xd")
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = -45.0
+offset_top = -131.0
+offset_right = 47.0
+offset_bottom = -57.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "111"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

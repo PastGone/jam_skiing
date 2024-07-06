@@ -23,7 +23,7 @@ func _ready() -> void:
 		if i==0:
 			pre_adding_points.append(Vector2.ZERO)
 			continue
-		last+=Vector2(i*50.0,randf_range(50,100))
+		last+=Vector2(i*50.0,randf_range(50,200))
 		pre_adding_points.append(last)
 	line_2d.set_points(pre_adding_points)
 	pass 

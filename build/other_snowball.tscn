@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyvf321q3161f"]
+
+[ext_resource type="Script" path="res://other_snowball.gd" id="1_ifo8g"]
+[ext_resource type="Texture2D" uid="uid://cwd7iow1aqoga" path="res://assets/textures/tset/雪球.png" id="1_w1ii3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66ci3"]
+radius = 253.32
+height = 506.64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovyfd"]
+size = Vector2(185, 186.5)
+
+[node name="OtherSnowball" type="CharacterBody2D" groups=["snow_ball"]]
+script = ExtResource("1_ifo8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_w1ii3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_66ci3")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48, 10)
+shape = SubResource("RectangleShape2D_ovyfd")
