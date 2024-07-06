@@ -13,7 +13,6 @@ var Tree1 = preload("res://build/tree_1.tscn")
 var Tree2 = preload("res://build/tree_2.tscn")
 var pitfall_sec=preload("res://build/pitfall.tscn")
 var house_sec=preload("res://build/house.tscn")
-
 var gold_sec=preload("res://build/gold.tscn")
 
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=19 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="Texture2D" uid="uid://latjhdiujvye" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
@@ -21,6 +21,9 @@ radius = 71.0
 height = 156.15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68ovb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y4xd"]
+size = Vector2(185, 186.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a2avg")
@@ -276,15 +279,25 @@ is_editor = true
 texture = ExtResource("4_u2yp5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 shape = SubResource("CapsuleShape2D_r3pq1")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 zoom = Vector2(0.5, 0.5)
+limit_smoothed = true
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="Player"]
+visible = false
 position = Vector2(8.9407e-07, 39)
 scale = Vector2(6.07116, 0.700226)
 shape = SubResource("RectangleShape2D_68ovb")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(30.5, 5.75)
+shape = SubResource("RectangleShape2D_2y4xd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -304,3 +317,5 @@ layout_mode = 2
 
 [node name="GameSystem" type="Node" parent="."]
 script = ExtResource("9_t1a12")
+
+[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]

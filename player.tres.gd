@@ -40,3 +40,14 @@ func _input(event:InputEvent):
 					#清除路标
 		
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+	if body.is_in_group("gold"):
+		print(body)
+		body.queue_free()
+	elif body.is_in_group("pitfall"):
+		print(body)
+		body.queue_free()
+	pass # Replace with function body.

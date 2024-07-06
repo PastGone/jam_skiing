@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -29,6 +28,12 @@ project/assembly_name="ski"
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+gold=""
+house=""
+pitfall=""
 
 [gui]
 

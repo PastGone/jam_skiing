@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2gy5epstr3an"]
 
 [ext_resource type="Script" path="res://way.tres.gd" id="1_3r11h"]
-[ext_resource type="Texture2D" uid="uid://u420cjgaqs1i" path="res://assets/textures/tset/斜坡_雪.png" id="2_vby8e"]
+[ext_resource type="Texture2D" uid="uid://dhcl582nmes70" path="res://assets/textures/tset/斜坡_雪.png" id="2_vby8e"]
 
 [node name="地段" type="CanvasGroup"]
 script = ExtResource("1_3r11h")

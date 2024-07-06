@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm7j0gvwigt0f"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_tws12"]
-[ext_resource type="Texture2D" uid="uid://bs22rv7sujutp" path="res://assets/textures/tset/树1.PNG" id="2_4hjve"]
+[ext_resource type="Texture2D" uid="uid://cn3jwc6kkpcs6" path="res://assets/textures/tset/树1.PNG" id="2_4hjve"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqu8"]
 atlas = ExtResource("2_4hjve")
 region = Rect2(299, 124, 463, 699)
 
-[node name="Tree1" instance=ExtResource("1_tws12")]
+[node name="Tree1" groups=["pitfall"] instance=ExtResource("1_tws12")]
 scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
