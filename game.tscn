@@ -1,18 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=19 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="Texture2D" uid="uid://caim4mce8thtl" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
 [ext_resource type="Script" path="res://Build.cs" id="2_td6qc"]
-[ext_resource type="Script" path="res://Cloud.cs" id="2_uo85j"]
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
 [ext_resource type="Script" path="res://Pitfall.cs" id="3_bwnah"]
+[ext_resource type="Texture2D" uid="uid://cat7mcklh5pv" path="res://assets/textures/tset/山1.png" id="3_gdm1j"]
 [ext_resource type="Script" path="res://worldmanger.gd" id="3_gl2k2"]
-[ext_resource type="PackedScene" uid="uid://buj3lws73qmrw" path="res://build/cloud_1.tscn" id="4_m7bko"]
+[ext_resource type="Texture2D" uid="uid://demwifpvfoa0b" path="res://assets/textures/tset/山2.png" id="4_fcfif"]
+[ext_resource type="Texture2D" uid="uid://bm7qvu3dum44f" path="res://assets/textures/tset/云1.png" id="4_pjjwq"]
 [ext_resource type="PackedScene" uid="uid://d2gy5epstr3an" path="res://way.tscn" id="4_tkp2r"]
 [ext_resource type="Texture2D" uid="uid://cb20nduxbycsl" path="res://icon.svg" id="4_u2yp5"]
-[ext_resource type="PackedScene" uid="uid://dmmgk1e5usvbi" path="res://build/cloud_2.tscn" id="5_7e7yc"]
-[ext_resource type="PackedScene" uid="uid://b3hrfyu4nkb6f" path="res://build/cloud_3.tscn" id="6_audno"]
-[ext_resource type="PackedScene" uid="uid://bbht4o1g14na1" path="res://build/cloud_4.tscn" id="7_hqmjy"]
+[ext_resource type="Texture2D" uid="uid://rn3ii35ajsr5" path="res://assets/textures/tset/山3.png" id="5_5fxaw"]
+[ext_resource type="Texture2D" uid="uid://buxnh6g2awh7f" path="res://assets/textures/tset/云2.png" id="5_gk18a"]
+[ext_resource type="Texture2D" uid="uid://bhps7nqde4whk" path="res://assets/textures/tset/山4.png" id="6_1g4hq"]
+[ext_resource type="Texture2D" uid="uid://woeeby6u3iob" path="res://assets/textures/tset/云3.png" id="6_va6ku"]
+[ext_resource type="Texture2D" uid="uid://crbvq7a7umaxd" path="res://assets/textures/tset/云4.png" id="7_dtpq6"]
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
@@ -31,36 +34,155 @@ texture = ExtResource("2_pgol4")
 centered = false
 
 [node name="Mountain" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.1)
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-339, 6)
+repeat_size = Vector2(2500, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain"]
+position = Vector2(246, 466)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mountain"]
+position = Vector2(666, 459)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain"]
+position = Vector2(-99, 534)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mountain"]
+position = Vector2(1178, 609)
+texture = ExtResource("6_1g4hq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mountain"]
+position = Vector2(2098, 476)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mountain"]
+position = Vector2(1621, 453)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mountain"]
+position = Vector2(-99, 534)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mountain"]
+position = Vector2(1682, 622)
+texture = ExtResource("6_1g4hq")
+
+[node name="Mountain2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0)
+scroll_offset = Vector2(-59, 109)
+repeat_size = Vector2(2500, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain2"]
+position = Vector2(260, 458)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mountain2"]
+position = Vector2(762, 448)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain2"]
+position = Vector2(506, 528)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mountain2"]
+position = Vector2(1175, 615)
+texture = ExtResource("6_1g4hq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mountain2"]
+position = Vector2(2106, 470)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mountain2"]
+position = Vector2(1819, 482)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mountain2"]
+position = Vector2(-71, 534)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mountain2"]
+position = Vector2(1674, 628)
+texture = ExtResource("6_1g4hq")
+
+[node name="Mountain3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0)
+scroll_offset = Vector2(-335, 327)
+repeat_size = Vector2(2500, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Mountain3"]
+position = Vector2(246, 466)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mountain3"]
+position = Vector2(976, 472)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mountain3"]
+position = Vector2(568, 544)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mountain3"]
+position = Vector2(1165, 627)
+texture = ExtResource("6_1g4hq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mountain3"]
+position = Vector2(2040, 463)
+texture = ExtResource("3_gdm1j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mountain3"]
+position = Vector2(1641, 468)
+texture = ExtResource("4_fcfif")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mountain3"]
+position = Vector2(-107, 539)
+texture = ExtResource("5_5fxaw")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mountain3"]
+position = Vector2(1667, 612)
+texture = ExtResource("6_1g4hq")
 
 [node name="Cloud" type="Parallax2D" parent="."]
-unique_name_in_owner = true
-scroll_scale = Vector2(0.1, 0)
-script = ExtResource("2_uo85j")
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(1000, 0)
+repeat_times = 4
 
-[node name="Cloud1" parent="Cloud" instance=ExtResource("4_m7bko")]
-position = Vector2(102, -14)
+[node name="Sprite2D" type="Sprite2D" parent="Cloud"]
+position = Vector2(1335, -469)
+texture = ExtResource("4_pjjwq")
 
-[node name="Cloud2" parent="Cloud" instance=ExtResource("5_7e7yc")]
-position = Vector2(700, 383)
+[node name="Sprite2D2" type="Sprite2D" parent="Cloud"]
+position = Vector2(1566, -354)
+texture = ExtResource("5_gk18a")
 
-[node name="Cloud2" parent="Cloud/Cloud2" instance=ExtResource("5_7e7yc")]
-position = Vector2(919, 15)
+[node name="Sprite2D3" type="Sprite2D" parent="Cloud"]
+position = Vector2(1772, 150)
+texture = ExtResource("6_va6ku")
 
-[node name="Cloud3" parent="Cloud" instance=ExtResource("6_audno")]
-position = Vector2(953, 22)
+[node name="Sprite2D4" type="Sprite2D" parent="Cloud"]
+position = Vector2(1558, 207)
+texture = ExtResource("7_dtpq6")
 
-[node name="Cloud4" parent="Cloud" instance=ExtResource("7_hqmjy")]
-position = Vector2(1442, 102)
+[node name="Sprite2D5" type="Sprite2D" parent="Cloud"]
+position = Vector2(2114, -142)
+texture = ExtResource("4_pjjwq")
 
-[node name="Cloud5" parent="Cloud" instance=ExtResource("4_m7bko")]
-position = Vector2(518, 118)
+[node name="Sprite2D6" type="Sprite2D" parent="Cloud"]
+position = Vector2(1775, 0)
+texture = ExtResource("5_gk18a")
 
-[node name="Cloud6" parent="Cloud" instance=ExtResource("4_m7bko")]
-position = Vector2(1289, 230)
+[node name="Sprite2D7" type="Sprite2D" parent="Cloud"]
+position = Vector2(1928, -280)
+texture = ExtResource("6_va6ku")
 
-[node name="Cloud7" parent="Cloud" instance=ExtResource("4_m7bko")]
-position = Vector2(1834, 105)
+[node name="Sprite2D8" type="Sprite2D" parent="Cloud"]
+position = Vector2(1605, -141)
+texture = ExtResource("7_dtpq6")
 
 [node name="Build" type="Node2D" parent="."]
 unique_name_in_owner = true
