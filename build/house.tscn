@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c58cthbdw77fs"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_1h57s"]
+[ext_resource type="Texture2D" uid="uid://dp4cobvpwayha" path="res://assets/textures/tset/IMG_9803.PNG" id="2_wybm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up7ea"]
+atlas = ExtResource("2_wybm0")
+region = Rect2(89, 153, 886, 826)
+
+[node name="House" instance=ExtResource("1_1h57s")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(-3, -400)
+texture = SubResource("AtlasTexture_up7ea")

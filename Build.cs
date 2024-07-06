@@ -8,8 +8,9 @@ namespace ski;
 public partial class Build : Node2D
 {
     [Export] private double _treeProbability = 2;
-    public static BaseObject Tree1 => ResourceLoader.Load<PackedScene>("res://build/tree1.tscn").Instantiate<BaseObject>();
-    public static BaseObject Tree2 => ResourceLoader.Load<PackedScene>("res://build/tree2.tscn").Instantiate<BaseObject>();
+    public static BaseObject Tree1 => ResourceLoader.Load<PackedScene>("res://build/tree_1.tscn").Instantiate<BaseObject>();
+    public static BaseObject Tree2 => ResourceLoader.Load<PackedScene>("res://build/tree_2.tscn").Instantiate<BaseObject>();
+    public static BaseObject House => ResourceLoader.Load<PackedScene>("res://build/house.tscn").Instantiate<BaseObject>();
 
 
     public override void _Process(double delta)
@@ -17,8 +18,15 @@ public partial class Build : Node2D
         if (CheckProbability(delta * _treeProbability))
         {
             Vector2 randomPoint = GetRandomPointOnLine(GameSystem.Line2D.Points);
-            GD.Print(GameSystem.Line2D.Points.Last());
             BaseObject tree = CheckProbability(0.5) ? Tree1 : Tree2;
+            tree.Position = randomPoint;
+            AddChild(tree);
+        }
+
+        if (CheckProbability(delta * 0.1))
+        {
+            Vector2 randomPoint = GetRandomPointOnLine(GameSystem.Line2D.Points);
+            BaseObject tree = House;
             tree.Position = randomPoint;
             AddChild(tree);
         }

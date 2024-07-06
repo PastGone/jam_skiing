@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://buj3lws73qmrw"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_7j1ke"]
+[ext_resource type="Texture2D" uid="uid://bm7qvu3dum44f" path="res://assets/textures/tset/云1.png" id="2_03w8f"]
+
+[node name="Cloud1" instance=ExtResource("1_7j1ke")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_03w8f")

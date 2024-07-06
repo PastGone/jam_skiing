@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=16 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="Texture2D" uid="uid://caim4mce8thtl" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
@@ -7,8 +7,12 @@
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
 [ext_resource type="Script" path="res://Pitfall.cs" id="3_bwnah"]
 [ext_resource type="Script" path="res://worldmanger.gd" id="3_gl2k2"]
+[ext_resource type="PackedScene" uid="uid://buj3lws73qmrw" path="res://build/cloud_1.tscn" id="4_m7bko"]
 [ext_resource type="PackedScene" uid="uid://d2gy5epstr3an" path="res://way.tscn" id="4_tkp2r"]
 [ext_resource type="Texture2D" uid="uid://cb20nduxbycsl" path="res://icon.svg" id="4_u2yp5"]
+[ext_resource type="PackedScene" uid="uid://dmmgk1e5usvbi" path="res://build/cloud_2.tscn" id="5_7e7yc"]
+[ext_resource type="PackedScene" uid="uid://b3hrfyu4nkb6f" path="res://build/cloud_3.tscn" id="6_audno"]
+[ext_resource type="PackedScene" uid="uid://bbht4o1g14na1" path="res://build/cloud_4.tscn" id="7_hqmjy"]
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
@@ -33,6 +37,30 @@ scroll_scale = Vector2(0.1, 0.1)
 unique_name_in_owner = true
 scroll_scale = Vector2(0.1, 0)
 script = ExtResource("2_uo85j")
+
+[node name="Cloud1" parent="Cloud" instance=ExtResource("4_m7bko")]
+position = Vector2(102, -14)
+
+[node name="Cloud2" parent="Cloud" instance=ExtResource("5_7e7yc")]
+position = Vector2(700, 383)
+
+[node name="Cloud2" parent="Cloud/Cloud2" instance=ExtResource("5_7e7yc")]
+position = Vector2(919, 15)
+
+[node name="Cloud3" parent="Cloud" instance=ExtResource("6_audno")]
+position = Vector2(953, 22)
+
+[node name="Cloud4" parent="Cloud" instance=ExtResource("7_hqmjy")]
+position = Vector2(1442, 102)
+
+[node name="Cloud5" parent="Cloud" instance=ExtResource("4_m7bko")]
+position = Vector2(518, 118)
+
+[node name="Cloud6" parent="Cloud" instance=ExtResource("4_m7bko")]
+position = Vector2(1289, 230)
+
+[node name="Cloud7" parent="Cloud" instance=ExtResource("4_m7bko")]
+position = Vector2(1834, 105)
 
 [node name="Build" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -61,6 +89,7 @@ texture = ExtResource("4_u2yp5")
 shape = SubResource("CapsuleShape2D_r3pq1")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
