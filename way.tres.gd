@@ -13,7 +13,6 @@ var Tree1 = preload("res://build/tree_1.tscn")
 var Tree2 = preload("res://build/tree_2.tscn")
 var pitfall_sec=preload("res://build/pitfall.tscn")
 var house_sec=preload("res://build/house.tscn")
-
 var gold_sec=preload("res://build/gold.tscn")
 
 func _ready() -> void:
@@ -62,7 +61,7 @@ func _ready() -> void:
 	#试着绘制陷阱
 	draw_pitfall()
 
-func  _process(delta: float) -> void:
+func  _process(_delta: float) -> void:
 	if worldmanger.最远点的位置.x > end_global_position.x+5000.0:
 		self.queue_free()
 		pass

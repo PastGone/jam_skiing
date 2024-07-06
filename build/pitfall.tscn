@@ -1,12 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dec2mlaxm0atw"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_tpd2l"]
-[ext_resource type="Texture2D" uid="uid://bwrf228pii1sh" path="res://assets/textures/tset/地刺.PNG" id="2_64mf4"]
+[ext_resource type="Texture2D" uid="uid://11lfvthivrnx" path="res://assets/textures/tset/地刺.PNG" id="2_64mf4"]
 
-[node name="pitfall" instance=ExtResource("1_tpd2l")]
+[node name="pitfall" groups=["pitfall"] instance=ExtResource("1_tpd2l")]
 scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+self_modulate = Color(1, 0.07, 0.07, 1)
 position = Vector2(9.53674e-07, -107.5)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_64mf4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+scale = Vector2(1, 1)
+build_mode = 1
+polygon = PackedVector2Array(-5, -175, -57.5, -2.5, 47.5, -2.5)
