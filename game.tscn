@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=12 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
+[ext_resource type="Texture2D" uid="uid://caim4mce8thtl" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
 [ext_resource type="Script" path="res://Build.cs" id="2_td6qc"]
 [ext_resource type="Script" path="res://Cloud.cs" id="2_uo85j"]
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
@@ -17,7 +18,15 @@ height = 122.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a2avg")
 
-[node name="Background" type="Parallax2D" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+scale = Vector2(32.1833, 1.07227)
+texture = ExtResource("2_pgol4")
+centered = false
+
+[node name="Mountain" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="Cloud" type="Parallax2D" parent="."]
