@@ -46,37 +46,41 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _input(event:InputEvent):
-	if event is InputEventMouseButton and shape_cast_2d.is_colliding():
+	if event is InputEventMouseButton :
 		if event.button_index==MOUSE_BUTTON_LEFT and event.is_pressed() :
 			mjump()
 			return
 	
 #	合并在这里
-	if Input.is_action_just_pressed("ui_accept") and shape_cast_2d.is_colliding()  :
+	if Input.is_action_just_pressed("ui_accept") :
 		combine()
 		return
 
 #	分裂在这里。 
-	if event is InputEventMouseButton and self.scale>Vector2(2,2) :
+	if event is InputEventMouseButton :
 		if event.button_index==MOUSE_BUTTON_RIGHT and event.is_pressed() :
 				split()
 				pass
 		pass
 
+
 func mjump():
-	velocity.y = JUMP_VELOCITY
-	jump.play()
+	if shape_cast_2d.is_colliding():
+		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 
 func split():
-	self.scale/=2
-	display_current_scale/=2
-	for i in range(0,add_other_num):
-		var a:CharacterBody2D=other.instantiate()
-		a.position.x=other_index*-200
-		other_index+=1
-		self.add_child(a)
-		add_other_num*=2
+	if self.scale>Vector2(2,2): 
+		self.scale/=2
+		display_current_scale/=2
+		for i in range(0,add_other_num):
+			var a:CharacterBody2D=other.instantiate()
+			a.position.x=other_index*-200
+			other_index+=1
+			self.add_child(a)
+			add_other_num*=2
+		
 func combine():
 	for c in self.get_children():
 			if c.is_in_group("snow_ball"):
@@ -138,8 +142,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_up_button_up() -> void:
-	if shape_cast_2d.is_colliding():
-		mjump()
+	
+	mjump()
 	pass # Replace with function body.
 
 
