@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2gy5epstr3an"]
 
 [ext_resource type="Script" path="res://way.tres.gd" id="1_3r11h"]
-[ext_resource type="Texture2D" uid="uid://cr53873qallis" path="res://tile.svg" id="1_lo7ya"]
+[ext_resource type="Texture2D" uid="uid://cb20nduxbycsl" path="res://icon.svg" id="2_up737"]
 
 [node name="地段" type="CanvasGroup"]
 script = ExtResource("1_3r11h")
 
 [node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
 width = 50.0
-texture = ExtResource("1_lo7ya")
+texture = ExtResource("2_up737")
 texture_mode = 1
 joint_mode = 2
 end_cap_mode = 2

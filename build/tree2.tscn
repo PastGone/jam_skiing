@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwu40lpp3l6yk"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_bu71m"]
+[ext_resource type="Texture2D" uid="uid://cqmejsa4qg5kp" path="res://assets/textures/tset/树2.PNG" id="2_77hio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep7yt"]
+atlas = ExtResource("2_77hio")
+region = Rect2(300, 104, 479, 741)
+
+[node name="tree1" instance=ExtResource("1_bu71m")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(2.5, -360)
+texture = SubResource("AtlasTexture_ep7yt")
