@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=24 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="AudioStream" uid="uid://lolf2wrjlu8p" path="res://ogg_sound/Game  Royalty-free Music - Pixabay.ogg" id="2_41krg"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dh1pr5iu0xcox" path="res://assets/textures/tset/云4.png" id="7_dtpq6"]
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
 [ext_resource type="Texture2D" uid="uid://df8vbi0ma2i4h" path="res://assets/textures/tset/雪球_开心.PNG" id="18_bir1x"]
+[ext_resource type="PackedScene" uid="uid://budlcqwi30ipp" path="res://stick.tscn" id="20_absct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
 radius = 63.0
@@ -368,4 +369,22 @@ layout_mode = 2
 [node name="GameSystem" type="Node" parent="."]
 script = ExtResource("9_t1a12")
 
+[node name="stick" parent="." instance=ExtResource("20_absct")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 716.0
+offset_top = 120.0
+offset_right = 1256.0
+offset_bottom = 263.0
+theme_override_colors/font_color = Color(1, 0, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 98
+text = "左键跳跃，右键分离。
+空格合并。"
+
 [connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="button_up" from="stick/up" to="Player" method="_on_up_button_up"]
+[connection signal="button_up" from="stick/combine" to="Player" method="_on_combine_button_up"]
+[connection signal="button_up" from="stick/split" to="Player" method="_on_split_button_up"]
+
+[editable path="stick"]
