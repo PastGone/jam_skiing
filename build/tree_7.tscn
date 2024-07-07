@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs5robgt4bvdh"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_r1rit"]
+[ext_resource type="Texture2D" uid="uid://fd41grv4t7d2" path="res://assets/textures/tset/植物_组3.png" id="2_tp8nm"]
+
+[sub_resource type="GDScript" id="GDScript_2su26"]
+script/source = "extends StaticBody2D
+
+var a:Texture2D=preload(\"res://assets/textures/tset/小屋残骸.PNG\")
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+var falg=false
+
+func q_f():
+	animation_player.play(\"q_f\")
+	falg=true
+	
+
+func _process(delta: float) -> void:
+	if falg:
+		if not animation_player.is_playing() :
+			self.queue_free()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8o6"]
+radius = 210.0
+height = 555.0
+
+[node name="Tree7" groups=["tree"] instance=ExtResource("1_r1rit")]
+scale = Vector2(0.4, 0.4)
+collision_layer = 4
+script = SubResource("GDScript_2su26")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(2.5, -360)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_tp8nm")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.5, -370)
+shape = SubResource("CapsuleShape2D_ct8o6")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1h2jd8qddqvj"]
+
+[ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_w6tdr"]
+
+[sub_resource type="GDScript" id="GDScript_2su26"]
+script/source = "extends StaticBody2D
+
+var a:Texture2D=preload(\"res://assets/textures/tset/小屋残骸.PNG\")
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+var falg=false
+
+func q_f():
+	animation_player.play(\"q_f\")
+	falg=true
+	
+
+func _process(delta: float) -> void:
+	if falg:
+		if not animation_player.is_playing() :
+			self.queue_free()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8o6"]
+radius = 197.49
+height = 625.0
+
+[node name="Tree3" groups=["tree"] instance=ExtResource("1_w6tdr")]
+scale = Vector2(0.4, 0.4)
+collision_layer = 4
+script = SubResource("GDScript_2su26")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -360)
+scale = Vector2(1.8, 1.8)
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-5, -320)
+shape = SubResource("CapsuleShape2D_ct8o6")

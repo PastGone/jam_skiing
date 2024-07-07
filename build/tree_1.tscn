@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cm7j0gvwigt0f"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_tws12"]
-[ext_resource type="Texture2D" uid="uid://csu60mp3qepcq" path="res://assets/textures/tset/树1倒.PNG" id="2_2jjqw"]
-[ext_resource type="Texture2D" uid="uid://cn3jwc6kkpcs6" path="res://assets/textures/tset/树1.PNG" id="2_4hjve"]
+[ext_resource type="Texture2D" uid="uid://bb0n3dqrhowjh" path="res://assets/textures/tset/树1倒.PNG" id="2_2jjqw"]
+[ext_resource type="Texture2D" uid="uid://bs22rv7sujutp" path="res://assets/textures/tset/树1.PNG" id="2_4hjve"]
 
 [sub_resource type="GDScript" id="GDScript_on2hq"]
 script/source = "extends StaticBody2D
@@ -28,6 +28,21 @@ func _process(delta: float) -> void:
 radius = 217.84
 height = 654.62
 
+[sub_resource type="Animation" id="Animation_babpg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_4hjve")]
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqu8"]
 atlas = ExtResource("2_4hjve")
 region = Rect2(299, 124, 463, 699)
@@ -52,21 +67,6 @@ tracks/0/keys = {
 "values": [SubResource("AtlasTexture_kyqu8"), SubResource("AtlasTexture_v1bdn")]
 }
 
-[sub_resource type="Animation" id="Animation_babpg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_4hjve")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fv15o"]
 _data = {
 "RESET": SubResource("Animation_babpg"),
@@ -81,6 +81,7 @@ script = SubResource("GDScript_on2hq")
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 position = Vector2(7.5, -272.5)
 texture = ExtResource("2_4hjve")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(-5, -290)
