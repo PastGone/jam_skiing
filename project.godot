@@ -65,6 +65,7 @@ pointing/emulate_mouse_from_touch=false
 
 2d_physics/layer_2="house"
 2d_physics/layer_3="tree"
+2d_physics/layer_4="floor"
 
 [rendering]
 

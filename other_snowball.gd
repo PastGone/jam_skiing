@@ -1,6 +1,4 @@
 extends CharacterBody2D
-@export var is_editor:bool
-@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
 
 

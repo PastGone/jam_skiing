@@ -308,11 +308,24 @@ script = ExtResource("3_gl2k2")
 [node name="地段" parent="地形" instance=ExtResource("4_tkp2r")]
 unique_name_in_owner = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = 716.0
+offset_top = 120.0
+offset_right = 1696.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(1, 0, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 98
+text = "左键跳跃，右键分离。
+空格合并。"
+
 [node name="role_group" type="Node2D" parent="."]
 
 [node name="Player" type="CharacterBody2D" parent="role_group"]
 unique_name_in_owner = true
 position = Vector2(223, 161)
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("3_7c0cb")
 is_editor = true
 
@@ -372,17 +385,6 @@ layout_mode = 2
 script = ExtResource("9_t1a12")
 
 [node name="stick" parent="." instance=ExtResource("20_absct")]
-
-[node name="Label" type="Label" parent="."]
-offset_left = 716.0
-offset_top = 120.0
-offset_right = 1256.0
-offset_bottom = 263.0
-theme_override_colors/font_color = Color(1, 0, 0.207843, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 98
-text = "左键跳跃，右键分离。
-空格合并。"
 
 [connection signal="body_entered" from="role_group/Player/Area2D" to="role_group/Player" method="_on_area_2d_body_entered"]
 [connection signal="button_up" from="stick/up" to="role_group/Player" method="_on_up_button_up"]
