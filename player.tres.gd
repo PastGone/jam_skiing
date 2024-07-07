@@ -4,9 +4,7 @@ extends CharacterBody2D
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -800.0
-@onready var getitem: AudioStreamPlayer = $"../sound_manger/getitem"
-@onready var jump: AudioStreamPlayer = $"../sound_manger/jump"
-@onready var crash_s: AudioStreamPlayer = $"../sound_manger/crash_s"
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
@@ -18,7 +16,9 @@ var other:=preload("res://build/other_snowball.tscn")
 var other_index:int=1
 
 var add_other_num=1
-
+@onready var getitem: AudioStreamPlayer = $"../../sound_manger/getitem"
+@onready var jump: AudioStreamPlayer = $"../../sound_manger/jump"
+@onready var crash_s: AudioStreamPlayer = $"../../sound_manger/crash_s"
 
 var max_scale:=Vector2(4,4)
 var scale_num:float=1

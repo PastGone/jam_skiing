@@ -308,40 +308,42 @@ script = ExtResource("3_gl2k2")
 [node name="地段" parent="地形" instance=ExtResource("4_tkp2r")]
 unique_name_in_owner = true
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="role_group" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="role_group"]
 unique_name_in_owner = true
 position = Vector2(223, 161)
 script = ExtResource("3_7c0cb")
 is_editor = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="role_group/Player"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_bir1x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="role_group/Player"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_r3pq1")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="role_group/Player"]
 visible = false
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 
-[node name="ShapeCast2D" type="ShapeCast2D" parent="Player"]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="role_group/Player"]
 visible = false
 position = Vector2(8.9407e-07, 39)
 scale = Vector2(6.07116, 0.700226)
 shape = SubResource("RectangleShape2D_68ovb")
 
-[node name="Area2D" type="Area2D" parent="Player"]
+[node name="Area2D" type="Area2D" parent="role_group/Player"]
 visible = false
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="role_group/Player/Area2D"]
 position = Vector2(48, 10)
 shape = SubResource("RectangleShape2D_2y4xd")
 
-[node name="Label" type="Label" parent="Player"]
+[node name="Label" type="Label" parent="role_group/Player"]
 offset_left = -45.0
 offset_top = -131.0
 offset_right = 47.0
@@ -382,9 +384,9 @@ theme_override_font_sizes/font_size = 98
 text = "左键跳跃，右键分离。
 空格合并。"
 
-[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="button_up" from="stick/up" to="Player" method="_on_up_button_up"]
-[connection signal="button_up" from="stick/combine" to="Player" method="_on_combine_button_up"]
-[connection signal="button_up" from="stick/split" to="Player" method="_on_split_button_up"]
+[connection signal="body_entered" from="role_group/Player/Area2D" to="role_group/Player" method="_on_area_2d_body_entered"]
+[connection signal="button_up" from="stick/up" to="role_group/Player" method="_on_up_button_up"]
+[connection signal="button_up" from="stick/combine" to="role_group/Player" method="_on_combine_button_up"]
+[connection signal="button_up" from="stick/split" to="role_group/Player" method="_on_split_button_up"]
 
 [editable path="stick"]
