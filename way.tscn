@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2gy5epstr3an"]
+[gd_scene load_steps=4 format=3 uid="uid://d2gy5epstr3an"]
 
 [ext_resource type="Script" path="res://way.tres.gd" id="1_3r11h"]
-[ext_resource type="Texture2D" uid="uid://u420cjgaqs1i" path="res://assets/textures/tset/斜坡_雪.png" id="2_vby8e"]
+[ext_resource type="Texture2D" uid="uid://dhcl582nmes70" path="res://assets/textures/tset/斜坡_雪.png" id="2_vby8e"]
+[ext_resource type="Texture2D" uid="uid://u4vyqqorldyd" path="res://assets/textures/tset/斜坡_山体.png" id="3_c5avp"]
 
 [node name="地段" type="CanvasGroup"]
 script = ExtResource("1_3r11h")
@@ -15,6 +16,11 @@ joint_mode = 2
 end_cap_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 9
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 build_mode = 1
+
+[node name="斜坡山体" type="Sprite2D" parent="StaticBody2D"]
+visible = false
+texture = ExtResource("3_c5avp")

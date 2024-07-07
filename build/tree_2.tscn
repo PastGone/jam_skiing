@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cwu40lpp3l6yk"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_bu71m"]
-[ext_resource type="Texture2D" uid="uid://cqmejsa4qg5kp" path="res://assets/textures/tset/树2.PNG" id="2_77hio"]
-[ext_resource type="Texture2D" uid="uid://cgvj3kp5dxrfi" path="res://assets/textures/tset/树2倒.PNG" id="2_n3iep"]
+[ext_resource type="Texture2D" uid="uid://dv5wewrbwmnr" path="res://assets/textures/tset/树2.PNG" id="2_77hio"]
+[ext_resource type="Texture2D" uid="uid://jvmp7wf8m1ig" path="res://assets/textures/tset/树2倒.PNG" id="2_n3iep"]
 
 [sub_resource type="GDScript" id="GDScript_2su26"]
 script/source = "extends StaticBody2D

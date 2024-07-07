@@ -25,6 +25,16 @@ func _ready() -> void:
 			continue
 		last+=Vector2(i*50.0,randf_range(50,200))
 		pre_adding_points.append(last)
+	#if worldmanger.当前最新地形编号==0:
+		#var limit=5
+		#var k:int=0
+		#for i in pre_adding_points:
+			#pre_adding_points[k]=Vector2.ZERO
+			#k+=1
+			#if k>=limit:
+				#break
+			#pass
+			
 	line_2d.set_points(pre_adding_points)
 	pass 
 #	

@@ -1,24 +1,24 @@
 [gd_scene load_steps=24 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
-[ext_resource type="AudioStream" uid="uid://cw0pnosj6i2b" path="res://ogg_sound/Game  Royalty-free Music - Pixabay.ogg" id="2_41krg"]
-[ext_resource type="AudioStream" uid="uid://2hr28hrdxd8w" path="res://ogg_sound/Snowball_UI_Get_Item.ogg" id="2_as8st"]
-[ext_resource type="Texture2D" uid="uid://caim4mce8thtl" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
-[ext_resource type="AudioStream" uid="uid://pk1qlk1gn2i1" path="res://ogg_sound/Snowball_Crash_Small.ogg" id="3_3x2a0"]
+[ext_resource type="AudioStream" uid="uid://lolf2wrjlu8p" path="res://ogg_sound/Game  Royalty-free Music - Pixabay.ogg" id="2_41krg"]
+[ext_resource type="AudioStream" uid="uid://bn766yhyhhjit" path="res://ogg_sound/Snowball_UI_Get_Item.ogg" id="2_as8st"]
+[ext_resource type="Texture2D" uid="uid://latjhdiujvye" path="res://assets/textures/tset/天空.png" id="2_pgol4"]
+[ext_resource type="AudioStream" uid="uid://cv67lctq4yad2" path="res://ogg_sound/Snowball_Crash_Small.ogg" id="3_3x2a0"]
 [ext_resource type="Script" path="res://player.tres.gd" id="3_7c0cb"]
-[ext_resource type="Texture2D" uid="uid://cat7mcklh5pv" path="res://assets/textures/tset/山1.png" id="3_gdm1j"]
+[ext_resource type="Texture2D" uid="uid://68bdg4epppjt" path="res://assets/textures/tset/山1.png" id="3_gdm1j"]
 [ext_resource type="Script" path="res://worldmanger.gd" id="3_gl2k2"]
-[ext_resource type="Texture2D" uid="uid://demwifpvfoa0b" path="res://assets/textures/tset/山2.png" id="4_fcfif"]
-[ext_resource type="Texture2D" uid="uid://bm7qvu3dum44f" path="res://assets/textures/tset/云1.png" id="4_pjjwq"]
-[ext_resource type="AudioStream" uid="uid://cbffiotbh4rjo" path="res://ogg_sound/Snowball_Jump.ogg" id="4_qxprf"]
+[ext_resource type="Texture2D" uid="uid://b4qymw3uqq64a" path="res://assets/textures/tset/山2.png" id="4_fcfif"]
+[ext_resource type="Texture2D" uid="uid://dvf5qhsa32l3g" path="res://assets/textures/tset/云1.png" id="4_pjjwq"]
+[ext_resource type="AudioStream" uid="uid://bpv0db00pxd05" path="res://ogg_sound/Snowball_Jump.ogg" id="4_qxprf"]
 [ext_resource type="PackedScene" uid="uid://d2gy5epstr3an" path="res://way.tscn" id="4_tkp2r"]
-[ext_resource type="Texture2D" uid="uid://rn3ii35ajsr5" path="res://assets/textures/tset/山3.png" id="5_5fxaw"]
-[ext_resource type="Texture2D" uid="uid://buxnh6g2awh7f" path="res://assets/textures/tset/云2.png" id="5_gk18a"]
-[ext_resource type="Texture2D" uid="uid://bhps7nqde4whk" path="res://assets/textures/tset/山4.png" id="6_1g4hq"]
-[ext_resource type="Texture2D" uid="uid://woeeby6u3iob" path="res://assets/textures/tset/云3.png" id="6_va6ku"]
-[ext_resource type="Texture2D" uid="uid://crbvq7a7umaxd" path="res://assets/textures/tset/云4.png" id="7_dtpq6"]
+[ext_resource type="Texture2D" uid="uid://ech6jwe6b18i" path="res://assets/textures/tset/山3.png" id="5_5fxaw"]
+[ext_resource type="Texture2D" uid="uid://cisy21cecw3sr" path="res://assets/textures/tset/云2.png" id="5_gk18a"]
+[ext_resource type="Texture2D" uid="uid://dwovduixqams8" path="res://assets/textures/tset/山4.png" id="6_1g4hq"]
+[ext_resource type="Texture2D" uid="uid://0apm68qc50jh" path="res://assets/textures/tset/云3.png" id="6_va6ku"]
+[ext_resource type="Texture2D" uid="uid://dh1pr5iu0xcox" path="res://assets/textures/tset/云4.png" id="7_dtpq6"]
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
-[ext_resource type="Texture2D" uid="uid://cwe76yxnj6mwe" path="res://assets/textures/tset/雪球_开心.PNG" id="18_bir1x"]
+[ext_resource type="Texture2D" uid="uid://df8vbi0ma2i4h" path="res://assets/textures/tset/雪球_开心.PNG" id="18_bir1x"]
 [ext_resource type="PackedScene" uid="uid://budlcqwi30ipp" path="res://stick.tscn" id="20_absct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
@@ -308,40 +308,55 @@ script = ExtResource("3_gl2k2")
 [node name="地段" parent="地形" instance=ExtResource("4_tkp2r")]
 unique_name_in_owner = true
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Label" type="Label" parent="."]
+offset_left = 716.0
+offset_top = 120.0
+offset_right = 1696.0
+offset_bottom = 375.0
+theme_override_colors/font_color = Color(1, 0, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 98
+text = "左键跳跃，右键分离。
+空格合并。"
+
+[node name="role_group" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="role_group"]
 unique_name_in_owner = true
 position = Vector2(223, 161)
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("3_7c0cb")
 is_editor = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Sprite2D" type="Sprite2D" parent="role_group/Player"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_bir1x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="role_group/Player"]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_r3pq1")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="role_group/Player"]
 visible = false
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 
-[node name="ShapeCast2D" type="ShapeCast2D" parent="Player"]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="role_group/Player"]
 visible = false
 position = Vector2(8.9407e-07, 39)
 scale = Vector2(6.07116, 0.700226)
 shape = SubResource("RectangleShape2D_68ovb")
 
-[node name="Area2D" type="Area2D" parent="Player"]
+[node name="Area2D" type="Area2D" parent="role_group/Player"]
 visible = false
 collision_mask = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="role_group/Player/Area2D"]
 position = Vector2(48, 10)
 shape = SubResource("RectangleShape2D_2y4xd")
 
-[node name="Label" type="Label" parent="Player"]
+[node name="Label" type="Label" parent="role_group/Player"]
 offset_left = -45.0
 offset_top = -131.0
 offset_right = 47.0
@@ -371,20 +386,9 @@ script = ExtResource("9_t1a12")
 
 [node name="stick" parent="." instance=ExtResource("20_absct")]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 716.0
-offset_top = 120.0
-offset_right = 1256.0
-offset_bottom = 263.0
-theme_override_colors/font_color = Color(1, 0, 0.207843, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 98
-text = "左键跳跃，右键分离。
-空格合并。"
-
-[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="button_up" from="stick/up" to="Player" method="_on_up_button_up"]
-[connection signal="button_up" from="stick/combine" to="Player" method="_on_combine_button_up"]
-[connection signal="button_up" from="stick/split" to="Player" method="_on_split_button_up"]
+[connection signal="body_entered" from="role_group/Player/Area2D" to="role_group/Player" method="_on_area_2d_body_entered"]
+[connection signal="button_up" from="stick/up" to="role_group/Player" method="_on_up_button_up"]
+[connection signal="button_up" from="stick/combine" to="role_group/Player" method="_on_combine_button_up"]
+[connection signal="button_up" from="stick/split" to="role_group/Player" method="_on_split_button_up"]
 
 [editable path="stick"]
