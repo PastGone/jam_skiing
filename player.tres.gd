@@ -47,6 +47,10 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _input(event:InputEvent):
+	
+	if GlobalParms.is_mobile_platform():
+		return
+	
 	if not GlobalParms.is_mobile_platform() and GlobalParms.use_V_stick:
 		return
 		

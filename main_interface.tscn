@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv32dtapy416b"]
+[gd_scene load_steps=9 format=3 uid="uid://dv32dtapy416b"]
 
-[ext_resource type="Texture2D" uid="uid://b66l86vtcee62" path="res://assets/textures/tset/场景.png" id="1_31jwg"]
+[ext_resource type="Texture2D" uid="uid://cj3f0xrhx2aqx" path="res://assets/gui/开始封面.png" id="1_2eqrf"]
+[ext_resource type="Texture2D" uid="uid://248ehwl7uqsg" path="res://assets/gui/雪球吞噬纪.png" id="3_08etj"]
 [ext_resource type="Theme" uid="uid://b4f152moh4ayu" path="res://addons/dialogue_nodes/themes/bubblyClean.theme" id="3_m1uht"]
 
 [sub_resource type="GDScript" id="GDScript_kfl1q"]
@@ -99,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_31jwg")
+texture = ExtResource("1_2eqrf")
 expand_mode = 1
 flip_h = true
 
@@ -155,6 +156,7 @@ text = "退出"
 script = SubResource("GDScript_d07us")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -166,6 +168,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 128
 text = "雪球吞噬纪"
 horizontal_alignment = 1
+
+[node name="雪球吞噬纪" type="Sprite2D" parent="."]
+position = Vector2(943, 250)
+texture = ExtResource("3_08etj")
 
 [connection signal="button_up" from="Panel/VBoxContainer/new_game" to="Panel/VBoxContainer/new_game" method="_on_button_up"]
 [connection signal="button_up" from="Panel/VBoxContainer/displaymode" to="Panel/VBoxContainer/displaymode" method="_on_button_up"]
