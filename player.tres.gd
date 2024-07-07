@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 	if scale_num<0.5:
 		label.self_modulate=Color(255,0,0,255)
 	if scale_num<0.2:
-		get_tree().change_scene_to_packed(load("res://main_interface.tscn"))
+		get_tree().change_scene_to_packed(load("res://lost.tscn"))
+		
 	label.text=str("X","%.1f" % scale_num)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -46,6 +47,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _input(event:InputEvent):
+	if not GlobalParms.is_mobile_platform() and GlobalParms.use_V_stick:
+		return
+		
 	if event is InputEventMouseButton :
 		if event.button_index==MOUSE_BUTTON_LEFT and event.is_pressed() :
 			mjump()
@@ -99,16 +103,27 @@ func combine():
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	var small_get=Vector2(0.05/other_index,0.05/other_index)
+	var middle_get:=Vector2(0.1/other_index,0.1/other_index)
+	var big_get:=Vector2(0.2/other_index,0.2/other_index)
 	
+	
+	var lost:=Vector2(0.1/other_index,0.1/other_index)
+
+	
+	if GlobalParms.cur_mode==GlobalParms.mode.display:
+		small_get=Vector2(0.5/other_index,0.5/other_index)
+	if GlobalParms.cur_mode==GlobalParms.mode.hard:
+		lost=Vector2(1.0/other_index,1.0/other_index)
+
+
 	if body.is_in_group("gold"):
 		print(body)
 		getitem.play()
 		sprite_2d.texture=happy
 		if scale<Vector2(10,10):
-			#self.scale+=Vector2(1,1)
-			self.scale+=Vector2(0.05/other_index,0.05/other_index)
-			display_current_scale+=Vector2(0.05/other_index,0.05/other_index)
-		
+			self.scale+=small_get
+			display_current_scale+=small_get
 		body.queue_free()
 	
 	
@@ -116,8 +131,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	elif body.is_in_group("tree")and scale>Vector2(2.5,2.5):
 		crash_s.play()
 		sprite_2d.texture=happy
-		self.scale+=Vector2(0.1/other_index,0.1/other_index)
-		display_current_scale+=Vector2(0.1/other_index,0.1/other_index)
+		self.scale+=middle_get
+		display_current_scale+=middle_get
 		body.q_f()
 		
 	elif body.is_in_group("house") :
@@ -126,8 +141,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			crash_s.play()
 			sprite_2d.texture=happy
-			self.scale+=Vector2(0.2/other_index,0.2/other_index)
-			display_current_scale+=Vector2(0.2/other_index,0.2/other_index)
+			self.scale+=big_get
+			display_current_scale+=big_get
 			body.q_f()
 
 #减的逻辑 
@@ -135,10 +150,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print(body)
 		crash_s.play()
 		sprite_2d.texture=sad
-		self.scale-=Vector2(0.1/other_index,0.1/other_index)
-		display_current_scale-=Vector2(0.1/other_index,0.1/other_index)
+		self.scale-=lost
+		display_current_scale-=lost
 		body.queue_free()
 	pass # Replace with function body.
+
+
 
 
 func _on_up_button_up() -> void:

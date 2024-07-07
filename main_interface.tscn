@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv32dtapy416b"]
+[gd_scene load_steps=8 format=3 uid="uid://dv32dtapy416b"]
 
-[ext_resource type="Texture2D" uid="uid://cco4dpejm4vus" path="res://assets/windrise-background.png" id="1_dqb51"]
+[ext_resource type="Texture2D" uid="uid://b66l86vtcee62" path="res://assets/textures/tset/场景.png" id="1_31jwg"]
+[ext_resource type="Theme" uid="uid://b4f152moh4ayu" path="res://addons/dialogue_nodes/themes/bubblyClean.theme" id="3_m1uht"]
 
 [sub_resource type="GDScript" id="GDScript_kfl1q"]
 script/source = "extends Button
@@ -17,23 +18,65 @@ func _process(delta: float) -> void:
 
 
 func _on_button_up() -> void:
+	GlobalParms.cur_mode=GlobalParms.mode.nomal
 	get_tree().change_scene_to_packed(game)
 
 	pass # Replace with function body.
 "
 
-[sub_resource type="GDScript" id="GDScript_d07us"]
+[sub_resource type="GDScript" id="GDScript_37sww"]
 script/source = "extends Button
+
+var game:=preload(\"res://game.tscn\") 
+
+
+func _on_button_up() -> void:
+	GlobalParms.cur_mode=GlobalParms.mode.display
+	get_tree().change_scene_to_packed(game)
+
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_0kcdp"]
+script/source = "extends Button
+
+var game:=preload(\"res://game.tscn\") 
+
+
+
+func _on_button_up() -> void:
+	GlobalParms.cur_mode=GlobalParms.mode.hard
+	get_tree().change_scene_to_packed(game)
+
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_imao7"]
+script/source = "extends CheckButton
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if GlobalParms.is_mobile_platform():
+		hide()
+	
+	self.button_pressed=GlobalParms.use_V_stick
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_toggled(toggled_on: bool) -> void:
+	print(toggled_on)
+	GlobalParms.use_V_stick=toggled_on
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_d07us"]
+script/source = "extends Button
 
 
 func _on_button_up() -> void:
@@ -56,38 +99,76 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dqb51")
+texture = ExtResource("1_31jwg")
 expand_mode = 1
 flip_h = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 505.0
+offset_right = 1436.0
+offset_bottom = 981.0
+theme = ExtResource("3_m1uht")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 400.0
-offset_right = 3.0
-offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme = ExtResource("3_m1uht")
 metadata/_edit_group_ = true
 
-[node name="new_game" type="Button" parent="VBoxContainer"]
+[node name="new_game" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "新游戏"
+theme = ExtResource("3_m1uht")
+text = "新游戏(挂机模式)"
 script = SubResource("GDScript_kfl1q")
 
-[node name="setting" type="Button" parent="VBoxContainer"]
+[node name="displaymode" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "设置"
+theme = ExtResource("3_m1uht")
+text = "演示模式"
+script = SubResource("GDScript_37sww")
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="hard_mode" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_m1uht")
+text = "挑战模式"
+script = SubResource("GDScript_0kcdp")
+
+[node name="CheckButton" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m1uht")
+text = "虚拟按扭"
+script = SubResource("GDScript_imao7")
+
+[node name="exit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m1uht")
 text = "退出"
 script = SubResource("GDScript_d07us")
 
-[connection signal="button_up" from="VBoxContainer/new_game" to="VBoxContainer/new_game" method="_on_button_up"]
-[connection signal="button_up" from="VBoxContainer/exit" to="VBoxContainer/exit" method="_on_button_up"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 163.0
+offset_bottom = 343.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "雪球吞噬纪"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="Panel/VBoxContainer/new_game" to="Panel/VBoxContainer/new_game" method="_on_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/displaymode" to="Panel/VBoxContainer/displaymode" method="_on_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/hard_mode" to="Panel/VBoxContainer/hard_mode" method="_on_button_up"]
+[connection signal="toggled" from="Panel/VBoxContainer/CheckButton" to="Panel/VBoxContainer/CheckButton" method="_on_toggled"]
+[connection signal="button_up" from="Panel/VBoxContainer/exit" to="Panel/VBoxContainer/exit" method="_on_button_up"]
