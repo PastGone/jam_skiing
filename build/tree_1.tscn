@@ -12,14 +12,14 @@ var a:Texture2D=preload(\"res://assets/textures/tset/小屋残骸.PNG\")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-var falg=false
+var flag:bool=false
 func q_f():
 	animation_player.play(\"q_f\")
-	falg=true
+	flag=true
 	
 
-func _process(delta: float) -> void:
-	if falg:
+func _process(_delta: float) -> void:
+	if flag:
 		if not animation_player.is_playing() :
 			self.queue_free()
 "

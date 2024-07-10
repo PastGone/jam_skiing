@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://c58cthbdw77fs"]
 
 [ext_resource type="PackedScene" uid="uid://dw1vklxbplbs5" path="res://base_object.tscn" id="1_1h57s"]
-[ext_resource type="Texture2D" uid="uid://keiovcugxbh8" path="res://assets/textures/tset/小屋.PNG" id="2_07q2c"]
-[ext_resource type="Texture2D" uid="uid://ck1n3mgktak75" path="res://assets/textures/tset/小屋残骸.PNG" id="2_hj47s"]
-[ext_resource type="Texture2D" uid="uid://du7nmf5ritlcc" path="res://assets/textures/tset/小屋开门.PNG" id="4_gv1sv"]
+[ext_resource type="Texture2D" uid="uid://ckgkjkicm1qe4" path="res://assets/textures/tset/小屋.PNG" id="2_07q2c"]
+[ext_resource type="Texture2D" uid="uid://cblvu828rs1jh" path="res://assets/textures/tset/小屋残骸.PNG" id="2_hj47s"]
+[ext_resource type="Texture2D" uid="uid://ba8qqvybdpqpf" path="res://assets/textures/tset/小屋开门.PNG" id="4_gv1sv"]
 
 [sub_resource type="GDScript" id="GDScript_kg0eg"]
 script/source = "extends StaticBody2D
@@ -13,20 +13,23 @@ var a:Texture2D=preload(\"res://assets/textures/tset/小屋残骸.PNG\")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-var falg=false
+var flag:bool=false
+var is_freeing:bool=false
+
 func q_f():
 	animation_player.play(\"q_f\")
-	falg=true
+	flag=true
+	is_freeing=true
 	
 
-func _process(delta: float) -> void:
-	if falg:
+func _process(_delta: float) -> void:
+	if is_freeing:
 		if not animation_player.is_playing() :
 			self.queue_free()
 
 func open_door():
 	animation_player.play(\"opendoor\")
-	
+	flag=true
 	pass
 "
 
