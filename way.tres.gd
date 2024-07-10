@@ -2,6 +2,7 @@ extends CanvasGroup
 
 @onready var line_2d: Line2D = $Line2D
 @onready var collision_polygon_2d: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
+@onready var polygon_2d: Polygon2D = $StaticBody2D/Polygon2D
 
 @onready var worldmanger: Node2D = $".."
 @onready var game_system: Node = $"../../GameSystem"
@@ -50,6 +51,8 @@ func _ready() -> void:
 	pre_adding_points.append(last_point)
 	collision_polygon_2d.set_polygon(pre_adding_points)
 	
+	#	
+	polygon_2d.set_polygon(pre_adding_points)
 	#当前最新地形编号
 	if worldmanger.当前最新地形编号%10==0:
 		draw_house()

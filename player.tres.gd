@@ -1,5 +1,6 @@
 extends CharacterBody2D
-@export var is_editor:bool
+#@export var is_editor:bool
+
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
 const SPEED = 600.0
@@ -12,6 +13,7 @@ var happy:Texture=preload("res://assets/textures/tset/雪球_开心.PNG")
 var sad:Texture=preload("res://assets/textures/tset/雪球_伤心.PNG")
 
 var other:=preload("res://build/other_snowball.tscn")
+
 #子节点等于数量。 
 var other_index:int=1
 
