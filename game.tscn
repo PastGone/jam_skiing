@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxe0yajt2yvl4"]
+[gd_scene load_steps=25 format=3 uid="uid://cxe0yajt2yvl4"]
 
 [ext_resource type="Script" path="res://Game.cs" id="1_a2avg"]
 [ext_resource type="AudioStream" uid="uid://lolf2wrjlu8p" path="res://ogg_sound/Game  Royalty-free Music - Pixabay.ogg" id="2_41krg"]
@@ -20,6 +20,22 @@
 [ext_resource type="Script" path="res://GameSystem.cs" id="9_t1a12"]
 [ext_resource type="Texture2D" uid="uid://df8vbi0ma2i4h" path="res://assets/textures/tset/雪球_开心.PNG" id="18_bir1x"]
 [ext_resource type="PackedScene" uid="uid://budlcqwi30ipp" path="res://stick.tscn" id="20_absct"]
+
+[sub_resource type="GDScript" id="GDScript_bhao2"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+	if  GlobalParms.use_V_stick:
+		self.hide()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r3pq1"]
 radius = 63.0
@@ -318,6 +334,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 98
 text = "左键跳跃，右键分离。
 空格合并。"
+script = SubResource("GDScript_bhao2")
 
 [node name="role_group" type="Node2D" parent="."]
 
